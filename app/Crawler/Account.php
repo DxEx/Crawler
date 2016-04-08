@@ -4,7 +4,7 @@
  * Contains: Crawler/Account.
  */
 
-namespace DxEx\Crawler;
+namespace Crawler;
 
 class Account {
   protected $role;

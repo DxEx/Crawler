@@ -5,9 +5,9 @@
  * contains: Crawler\Test\TestInterface
  */
 
-namespace DxEx\Crawler\Test;
+namespace Crawler\Test;
 
-use DxEx\Crawler\TestAction\TestActionInterface;
+use Crawler\TestAction\TestActionInterface;
 
 /**
  * Class Test.

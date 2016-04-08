@@ -5,7 +5,7 @@
  * contains: Crawler\TestAction\TestActionFail
  */
 
-namespace DxEx\Crawler\TestAction;
+namespace Crawler\TestAction;
 
 class TestActionFail extends TestActionBase implements TestActionInterface {
 

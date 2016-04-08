@@ -6,9 +6,9 @@
  * Time: 18:45
  */
 
-namespace DxEx\Crawler\TestAction;
+namespace Crawler\TestAction;
 
-use DxEx\Crawler\Container;
+use Crawler\Container;
 
 class TestActionBase {
 

@@ -5,7 +5,7 @@
  * Contains Crawler\Environment.
  */
 
-namespace DxEx\Crawler;
+namespace Crawler;
 
 use Symfony\Component\Yaml\Yaml;
 
@@ -28,13 +28,12 @@ class Environment {
    * @param string $env
    *   Environment name must match a ENV.yml file. Without .YML extension.
    */
-  public function __construct($env) {
-    $env_file = dirname(__FILE__) . "/../../conf/environments/" . $env . ".yml";
-    $settings = Yaml::parse(file_get_contents($env_file));
+  public function __construct($label, $file_path) {
+    $settings = Yaml::parse(file_get_contents($file_path));
 
     $this->replacements = $settings;
 
-    $this->label = $env;
+    $this->label = $label;
     $this->baseUrl = $settings['baseUrl'];
     $this->loginUrl = $settings['loginUrl'];
     $this->loginButtonText = $settings['loginButtonText'];

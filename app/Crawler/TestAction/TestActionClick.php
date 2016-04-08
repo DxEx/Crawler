@@ -5,7 +5,7 @@
  * contains: Crawler\TestAction\TestActionClick
  */
 
-namespace DxEx\Crawler\TestAction;
+namespace Crawler\TestAction;
 
 class TestActionClick extends TestActionBase implements TestActionInterface {
 

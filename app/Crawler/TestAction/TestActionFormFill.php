@@ -5,7 +5,7 @@
  * contains: Crawler\TestAction\TestActionFormFill
  */
 
-namespace DxEx\Crawler\TestAction;
+namespace Crawler\TestAction;
 
 use StringTemplate;
 

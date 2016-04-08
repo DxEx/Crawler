@@ -14,5 +14,6 @@ actions:
       url: '/node/add/page'
       form_submit_text: 'Save'
       form_values:
-        title_field[und][0][value]: 'A test page'
+        title: 'A test page'
+#        title[und][0][value]: 'A test page'
     expected_status_code: '200'

@@ -16,6 +16,6 @@ actions:
     label: 'Run cron'
     params:
       url: '/admin/config/system/cron'
-#      form_submit_text: 'Run cron'
-      form_css_selector: '#elysia-cron-run-form #edit-run'
+      form_submit_text: 'Run cron'
+#      form_css_selector: '#elysia-cron-run-form #edit-run'
     expected_status_code: '200'

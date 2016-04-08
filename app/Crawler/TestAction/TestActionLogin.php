@@ -5,7 +5,7 @@
  * contains: Crawler\TestAction\TestActionLogin
  */
 
-namespace DxEx\Crawler\TestAction;
+namespace Crawler\TestAction;
 
 /**
  * Class TestActionLogin

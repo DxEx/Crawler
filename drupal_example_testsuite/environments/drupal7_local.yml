@@ -1,6 +1,6 @@
 name: 'Drupal 7 local'
-baseUrl: 'http://d7.local:8082/en'
-loginUrl: 'http://d7.local:8082/en/user/login'
+baseUrl: 'http://d7.local:8082'
+loginUrl: 'http://d7.local:8082/user/login'
 loginButtonText: 'Log in'
 account:
   developer:

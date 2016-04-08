@@ -5,9 +5,9 @@
  * contains: Crawler\TestAction\TestActionInterface
  */
 
-namespace DxEx\Crawler\TestAction;
+namespace Crawler\TestAction;
 
-use DxEx\Crawler\Container;
+use Crawler\Container;
 
 
 interface TestActionInterface {

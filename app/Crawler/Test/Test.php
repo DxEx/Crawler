@@ -5,10 +5,10 @@
  * contains: Crawler\Test\Test
  */
 
-namespace DxEx\Crawler\Test;
+namespace Crawler\Test;
 
-use DxEx\Crawler\Container;
-use DxEx\Crawler\TestAction\TestActionInterface;
+use Crawler\Container;
+use Crawler\TestAction\TestActionInterface;
 use Symfony\Component\Yaml\Yaml;
 
 class Test implements TestInterface {
@@ -33,8 +33,8 @@ class Test implements TestInterface {
    * @param string $file
    *
    * Examples:
-   *  - '~/PhpProjects/crawler/conf/tests/cache_clear_all.yml'
-   *  - '~/PhpProjects/crawler/conf/tests/views_create.yml'
+   *  - __DIR__ . '/tests/cache_clear_all.yml'
+   *  - __DIR__ . '/tests/views_create.yml'
    */
   public function createTestActionSequenceFromYML($file = '') {
     $yaml = Yaml::parse(file_get_contents($file));

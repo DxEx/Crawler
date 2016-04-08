@@ -5,9 +5,9 @@
  * contains: Crawler\TestSuite
  */
 
-namespace DxEx\Crawler;
+namespace Crawler;
 
-use DxEx\Crawler\Test\TestInterface;
+use Crawler\Test\TestInterface;
 
 class TestSuite {
   protected $container;

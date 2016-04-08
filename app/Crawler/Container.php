@@ -5,7 +5,7 @@
  * contains: Crawler\Container
  */
 
-namespace DxEx\Crawler;
+namespace Crawler;
 
 use Goutte\Client;
 use League\Csv\Writer;
@@ -27,14 +27,14 @@ class Container {
   /**
    * Container constructor.
    *
-   * @param string $environment
+   * @param Environment $environment
    * @param string $csv_file_path
    * @param string $label
    */
-  public function __construct($environment, $csv_file_path, $label = "Runner 1") {
+  public function __construct(Environment $environment, $csv_file_path, $label = "Runner 1") {
 
     // Load environment class.
-    $this->environment = new Environment($environment);
+    $this->environment = $environment;
 
     $this->csv_writer = Writer::createFromPath($csv_file_path, 'a+');
     $this->csv_writer->setDelimiter(";");
