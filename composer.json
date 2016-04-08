@@ -1,0 +1,21 @@
+{
+  "name": "dxex/crawler",
+  "description": "PHP Application for Behavior Driven Development. Crawl websites and measure performance.",
+  "keywords": [
+    "crawler",
+    "performance"
+  ],
+  "license": "MIT",
+  "type": "project",
+  "autoload": {
+    "psr-0": {
+      "Crawler": "app/"}
+  },
+  "require": {
+    "fabpot/goutte": "~3.1",
+    "symfony/yaml": "~3",
+    "symfony/stopwatch": "~3",
+    "league/csv": "^7.2",
+    "nicmart/string-template": "^0.1.0"
+  }
+}

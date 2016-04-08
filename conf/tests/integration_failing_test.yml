@@ -1,0 +1,8 @@
+meta:
+  label: 'Failing test'
+  description: 'This test contains TestActionFail and thus will always fail.'
+  category: 'developer'
+actions:
+  - class: 'TestActionFail'
+    expected_status_code: '200'
+

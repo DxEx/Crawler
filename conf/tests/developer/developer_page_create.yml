@@ -1,0 +1,18 @@
+meta:
+  label: 'Create page content'
+  description: 'Create a new page on node/add/page as developer.'
+  category: 'developer'
+actions:
+  - class: 'TestActionLogin'
+    label: 'Login as developer'
+    params:
+      account: 'developer'
+    expected_status_code: '200'
+  - class: 'TestActionFormFill'
+    label: 'Create a new page on node/add/page'
+    params:
+      url: '/node/add/page'
+      form_submit_text: 'Save'
+      form_values:
+        title_field[und][0][value]: 'A test page'
+    expected_status_code: '200'

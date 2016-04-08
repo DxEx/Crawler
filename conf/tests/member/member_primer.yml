@@ -1,0 +1,10 @@
+meta:
+  label: 'Primer'
+  description: 'Login as member user.'
+  category: 'member'
+actions:
+  - class: 'TestActionLogin'
+    label: 'Login as member'
+    params:
+      account: 'member'
+    expected_status_code: '200'

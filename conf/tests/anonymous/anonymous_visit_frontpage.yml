@@ -1,0 +1,10 @@
+meta:
+  label: 'Visit frontpage'
+  description: 'Visit the frontpage as anonymous user.'
+  category: 'anonymous'
+actions:
+  - class: 'TestActionUrl'
+    label: 'Visit frontpage'
+    params:
+      url: '/'
+    expected_status_code: '200'

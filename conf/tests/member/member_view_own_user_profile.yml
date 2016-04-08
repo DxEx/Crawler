@@ -1,0 +1,15 @@
+meta:
+  label: 'Visit own user profile'
+  description: 'Visit own user profile as member user on /user.'
+  category: 'member'
+actions:
+  - class: 'TestActionLogin'
+    label: 'Login as member'
+    params:
+      account: 'member'
+    expected_status_code: '200'
+  - class: 'TestActionUrl'
+    label: 'Visit own profile at /user'
+    params:
+      url: '/user/'
+    expected_status_code: '200'

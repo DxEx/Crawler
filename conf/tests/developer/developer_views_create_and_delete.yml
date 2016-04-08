@@ -1,0 +1,39 @@
+meta:
+  label: 'Create and Delete a View'
+  description: 'Create a View, save it, then delete it from system.'
+  category: 'developer'
+actions:
+  - class: 'TestActionLogin'
+    label: 'Login as developer'
+    params:
+      account: 'developer'
+    expected_status_code: '200'
+  - class: 'TestActionFormFill'
+    label: 'Create a new View on admin/structure/views/add'
+    params:
+      url: '/admin/structure/views/add'
+#      form_submit_text: 'Save & exit'
+      form_css_selector: '#views-ui-add-form #edit-save'
+      form_values:
+        human_name: 'Developer test view'
+        name: 'view_test_developer'
+        page[title]: 'Developer test view'
+        page[path]: 'view-test-developer'
+    expected_status_code: '200'
+  - class: 'TestActionUrl'
+    label: 'Test if View is created (and thus is deletable)'
+    params:
+      url: '/admin/structure/views/view/view_test_developer/delete'
+    expected_status_code: '200'
+  - class: 'TestActionFormFill'
+    label: 'Delete the just created View on admin/structure/views/view/*/delete'
+    params:
+      url: '/admin/structure/views/view/view_test_developer/delete'
+#      form_submit_text: 'Delete'
+      form_css_selector: '#ctools-export-ui-delete-confirm-form #edit-submit'
+    expected_status_code: '200'
+  - class: 'TestActionUrl'
+    label: 'Test if View is deleted from system'
+    params:
+      url: '/admin/structure/views/view/view_test_developer/delete'
+    expected_status_code: '404'

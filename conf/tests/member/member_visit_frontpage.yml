@@ -1,0 +1,15 @@
+meta:
+  label: 'Visit frontpage'
+  description: 'Visit the frontpage as member user.'
+  category: 'member'
+actions:
+  - class: 'TestActionLogin'
+    label: 'Login as member'
+    params:
+      account: 'member'
+    expected_status_code: '200'
+  - class: 'TestActionUrl'
+    label: 'Visit frontpage'
+    params:
+      url: '/'
+    expected_status_code: '200'

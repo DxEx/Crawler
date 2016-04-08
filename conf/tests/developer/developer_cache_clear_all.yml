@@ -1,0 +1,16 @@
+meta:
+  label: 'Cache Clear All'
+  description: 'Navigate to /performance. Flush all caches.'
+  category: 'developer'
+actions:
+  - class: 'TestActionLogin'
+    label: 'Login as developer'
+    params:
+      account: 'developer'
+    expected_status_code: '200'
+  - class: 'TestActionFormFill'
+    label: 'Clear all caches'
+    params:
+      url: '/admin/config/development/performance'
+      form_css_selector: '#system-performance-settings'
+    expected_status_code: '200'
