@@ -7,15 +7,20 @@
 
 namespace Crawler;
 
-use Crawler\Test\TestInterface;
+use Crawler\TestSequence\TestSequenceInterface;
 
+/**
+ * Class TestSuite.
+ *
+ * @package Crawler
+ */
 class TestSuite {
   protected $container;
   protected $tests = [];
   protected $groups = ['Anonymous', 'Developer', 'Member'];
 
   /**
-   * Test constructor.
+   * TestSuite constructor.
    *
    * @param Container $container
    *    The injected container.
@@ -31,7 +36,7 @@ class TestSuite {
 
   }
 
-  public function addTest(TestInterface $test) {
+  public function addTest(TestSequenceInterface $test) {
     $this->tests[] = $test;
   }
 
@@ -39,7 +44,7 @@ class TestSuite {
    * Executes all tests.
    */
   public function doExecute() {
-    print 'Test suite started' . PHP_EOL . PHP_EOL . PHP_EOL;
+    print 'TestSequence suite started' . PHP_EOL . PHP_EOL . PHP_EOL;
     $stopwatch = $this->container->stopwatch()->start('test_suite');
 
     print 'Crawler\TestSuite doExecute() called' . PHP_EOL;

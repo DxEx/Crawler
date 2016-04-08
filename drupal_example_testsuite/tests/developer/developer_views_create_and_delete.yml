@@ -21,7 +21,7 @@ actions:
         page[path]: 'view-test-developer'
     expected_status_code: '200'
   - class: 'TestActionUrl'
-    label: 'Test if View is created (and thus is deletable)'
+    label: 'TestSequence if View is created (and thus is deletable)'
     params:
       url: '/admin/structure/views/view/view_test_developer/delete'
     expected_status_code: '200'
@@ -33,7 +33,7 @@ actions:
       form_css_selector: '#ctools-export-ui-delete-confirm-form #edit-submit'
     expected_status_code: '200'
   - class: 'TestActionUrl'
-    label: 'Test if View is deleted from system'
+    label: 'TestSequence if View is deleted from system'
     params:
       url: '/admin/structure/views/view/view_test_developer/delete'
     expected_status_code: '404'

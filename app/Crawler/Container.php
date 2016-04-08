@@ -121,7 +121,7 @@ class Container {
   }
 
   /**
-   * Return Test label.
+   * Return TestSequence label.
    */
   public function label() {
     return $this->label;

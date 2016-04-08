@@ -9,7 +9,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Crawler\Container;
 use Crawler\Environment;
-use Crawler\Test\Test;
+use Crawler\TestSequence\TestSequence;
 
 // You can add multiple environments to a test-suite.
 $environments = [];
@@ -26,19 +26,19 @@ foreach ($environments as $env) {
 
   // Flush caches.
   $test_filename = __DIR__ . '/tests/developer/developer_cache_clear_all.yml';
-  $test = new Test($container);
+  $test = new TestSequence($container);
   $test->createTestActionSequenceFromYML($test_filename);
   $container->testSuite()->addTest($test);
 
   // Run Cron.
   $test_filename = __DIR__ . '/tests/developer/developer_run_cron.yml';
-  $test = new Test($container);
+  $test = new TestSequence($container);
   $test->createTestActionSequenceFromYML($test_filename);
   $container->testSuite()->addTest($test);
 
   // Create and Delete View.
   $test_filename = __DIR__ . '/tests/developer/developer_views_create_and_delete.yml';
-  $test = new Test($container);
+  $test = new TestSequence($container);
   $test->createTestActionSequenceFromYML($test_filename);
   $container->testSuite()->addTest($test);
 
@@ -48,7 +48,7 @@ foreach ($environments as $env) {
 
   // Create Node/Page.
   $test_filename = __DIR__ . '/tests/developer/developer_page_create.yml';
-  $test = new Test($container);
+  $test = new TestSequence($container);
   $test->createTestActionSequenceFromYML($test_filename);
   $container->testSuite()->addTest($test);
 

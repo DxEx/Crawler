@@ -2,19 +2,19 @@
 
 /**
  * @file
- * contains: Crawler\Test\TestInterface
+ * contains: Crawler\TestSequence\TestInterface
  */
 
-namespace Crawler\Test;
+namespace Crawler\TestSequence;
 
 use Crawler\TestAction\TestActionInterface;
 
 /**
- * Class Test.
+ * Class TestSequence.
  *
  * @package Crawler\Tests
  */
-interface TestInterface {
+interface TestSequenceInterface {
   public function doExecute();
 
   public function addActionToSequence(TestActionInterface $testAction);

@@ -1,9 +1,8 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: ndf
- * Date: 07/12/15
- * Time: 18:45
+ * @file
+ * contains: Crawler\TestAction\TestActionBase
  */
 
 namespace Crawler\TestAction;
@@ -17,7 +16,7 @@ class TestActionBase {
   protected $expected_status_code;
 
   /**
-   * Test constructor.
+   * TestAction constructor.
    *
    * @param Container $container
    *    The injected container.

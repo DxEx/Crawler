@@ -2,16 +2,16 @@
 
 /**
  * @file
- * contains: Crawler\Test\Test
+ * contains: Crawler\TestSequence\TestSequence
  */
 
-namespace Crawler\Test;
+namespace Crawler\TestSequence;
 
 use Crawler\Container;
 use Crawler\TestAction\TestActionInterface;
 use Symfony\Component\Yaml\Yaml;
 
-class Test implements TestInterface {
+class TestSequence implements TestSequenceInterface {
   protected $action_sequence;
   protected $failed;
   protected $meta;
@@ -20,7 +20,7 @@ class Test implements TestInterface {
   protected $status;
 
   /**
-   * Test constructor.
+   * TestSequence constructor.
    *
    * @param Container $container
    *    The injected container.
@@ -98,14 +98,14 @@ class Test implements TestInterface {
   }
 
   /**
-   * Return Test label.
+   * Return TestSequence label.
    */
   public function label() {
     return $this->meta['label'];
   }
 
   /**
-   * Return Test label.
+   * Return TestSequence label.
    */
   public function category() {
     return $this->meta['category'];

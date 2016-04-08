@@ -9,7 +9,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Crawler\Container;
 use Crawler\Environment;
-use Crawler\Test\Test;
+use Crawler\TestSequence\TestSequence;
 
 // You can add multiple environments to a test-suite.
 $environments = [];
@@ -22,7 +22,7 @@ foreach ($environments as $env) {
 
   // Visit frontpage.
   $test_filename = __DIR__ . '/tests/anonymous/anonymous_visit_frontpage.yml';
-  $test = new Test($container);
+  $test = new TestSequence($container);
   $test->createTestActionSequenceFromYML($test_filename);
   $container->testSuite()->addTest($test);
 
