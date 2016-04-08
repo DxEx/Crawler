@@ -15,3 +15,11 @@ execution:
 - $ php -f drupal_example_testsuite/anonymous_tests.php
 - $ php -f drupal_example_testsuite/developer_tests.php
 - results are written to /tmp/crawler-log.csv
+
+example output:
+
+| Environment | Account   | Test Sequence            | Start time          | Execution time | Test Suite      | Status  |
+|-------------|-----------|--------------------------|---------------------|---------------:|-----------------|---------|
+| drupal7     | anonymous | Visit frontpage          | 2016-04-08 16:03:07 | 68             | Anonymous Tests | SUCCESS |
+| drupal7     | developer | Cache Clear All          | 2016-04-08 16:03:10 | 2123           | Developer Tests | SUCCESS |
+| drupal7     | developer | Create and Delete a View | 2016-04-08 16:03:13 | 2417           | Developer Tests | SUCCESS |

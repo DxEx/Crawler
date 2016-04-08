@@ -18,7 +18,7 @@ $environments[] = new Environment('drupal7', __DIR__ . '/environments/drupal7_lo
 // For every environment a container is created that runs test-sequences.
 // Each test-sequence runs in a new session.
 foreach ($environments as $env) {
-  $container = new Container($env, "/tmp/crawler-log.csv", 'Anonymous Tests ' . $env->label());
+  $container = new Container($env, "/tmp/crawler-log.csv", 'Anonymous Tests');
 
   // Visit frontpage.
   $test_filename = __DIR__ . '/tests/anonymous/anonymous_visit_frontpage.yml';
