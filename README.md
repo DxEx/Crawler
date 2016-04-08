@@ -12,6 +12,6 @@ pre:
 - download and install views and views_ui
 
 execution:
-~~$ php -f drupal_example_testsuite/anonymous_tests.php~~
-~~$ php -f drupal_example_testsuite/developer_tests.php~~
+- $ php -f drupal_example_testsuite/anonymous_tests.php
+- $ php -f drupal_example_testsuite/developer_tests.php
 - results are written to /tmp/crawler-log.csv
