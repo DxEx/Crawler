@@ -45,6 +45,14 @@ class TestSequence implements TestSequenceInterface {
       $full_path_class = 'Crawler\\TestAction\\' . $action['class'];
       if (class_exists($full_path_class)) {
         $testAction = new $full_path_class($this->container, $action['params'], $action['expected_status_code']);
+        foreach ($action['validators'] as $class => $test) {
+          $full_path_class = 'Crawler\\TestValidation\\' . $class;
+          if (class_exists($full_path_class)) {
+            $validator = new $full_path_class($this->container);
+            $validator->setValidation($test);
+            $testAction->addValidator($validator);
+          }
+        }
         $this->addActionToSequence($testAction);
       }
     }
@@ -60,7 +68,8 @@ class TestSequence implements TestSequenceInterface {
     // Execute.
     $stopwatch = $this->container->stopwatch()->start($this->meta['label']);
     foreach ($this->action_sequence as $action) {
-      if (!$action->doExecute()) {
+      $action->doExecute();
+      if (!$action->doValidate()) {
         // Set error-code.
         $this->status = 'FAILED';
         continue;
@@ -89,6 +98,7 @@ class TestSequence implements TestSequenceInterface {
 
   public function addActionToSequence(TestActionInterface $testAction) {
     $this->action_sequence[] = $testAction;
+    return $testAction;
   }
 
   public function failed() {

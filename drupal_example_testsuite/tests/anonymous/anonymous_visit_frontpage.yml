@@ -8,3 +8,8 @@ actions:
     params:
       url: '/'
     expected_status_code: '200'
+    validators:
+      ResponseCode: '200'
+      FindText: 'Home'
+      FindCss: '#main-content'
+      ReturnBoolean: TRUE

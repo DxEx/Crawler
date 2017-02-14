@@ -19,11 +19,11 @@ class TestActionUrl extends TestActionBase implements TestActionInterface {
     $client = $this->container->client();
     $client->request('GET', $url);
 
-    // Response.
-    if ($client->getResponse()->getStatus() == $this->expected_status_code) {
-//      print 'Crawler\TestAction\TestActionUrl doExecute() finished successful with status_code ' . $this->expected_status_code . PHP_EOL;
-      return TRUE;
-    }
+//    // Response.
+//    if ($client->getResponse()->getStatus() == $this->expected_status_code) {
+////      print 'Crawler\TestAction\TestActionUrl doExecute() finished successful with status_code ' . $this->expected_status_code . PHP_EOL;
+//      return TRUE;
+//    }
   }
 
 }

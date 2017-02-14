@@ -13,7 +13,7 @@ use Crawler\TestSequence\TestSequence;
 
 // You can add multiple environments to a test-suite.
 $environments = [];
-$environments[] = new Environment('drupal7', __DIR__ . '/environments/drupal7_local.yml');
+$environments[] = new Environment('drupal8', __DIR__ . '/environments/drupal8_local.yml');
 
 // For every environment a container is created that runs test-sequences.
 // Each test-sequence runs in a new session.

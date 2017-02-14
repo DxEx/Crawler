@@ -8,11 +8,15 @@
 namespace Crawler\TestAction;
 
 use Crawler\Container;
+use Crawler\TestValidation\TestValidationInterface;
 
 class TestActionBase {
 
   protected $container;
   protected $params;
+  protected $validators = [];
+
+  // deprectated
   protected $expected_status_code;
 
   /**
@@ -31,4 +35,18 @@ class TestActionBase {
     $this->params = $params;
     $this->expected_status_code = $expected_status_code;
   }
+
+  public function addValidator(TestValidationInterface $validator) {
+    $this->validators[] = $validator;
+  }
+
+  public function doValidate() {
+    foreach ($this->validators as $validator) {
+      if (!$validator->doValidate()) {
+        return FALSE;
+      }
+    }
+    return TRUE;
+  }
+
 }

@@ -1,0 +1,13 @@
+name: 'Drupal 8 local'
+baseUrl: 'http://drupal-8.2.5.local'
+loginUrl: 'http://drupal-8.2.5.local/user/login'
+loginButtonText: 'Log in'
+account:
+  developer:
+    uid: '1'
+    name: 'admin'
+    pass: 'admin'
+  member:
+    uid: '2'
+    name: 'member'
+    pass: 'member'
