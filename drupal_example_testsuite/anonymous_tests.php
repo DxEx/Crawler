@@ -20,22 +20,18 @@ $environments[] = new Environment('drupal8', __DIR__ . '/environments/drupal8_lo
 // For every environment a container is created that runs test-sequences.
 // Each test-sequence runs in a new session.
 foreach ($environments as $env) {
-  $container = new Container($env, "/tmp/crawler-log.csv", 'Anonymous Tests');
+  $container = new Container($env, 'Anonymous Tests');
 
   // Add loggers.
-  $csvLogger = new CsvLogger();
-  $container->getDispatcher()->addListener('sequence.status', [
+  $csvLogger = new CsvLogger('/tmp/crawler-log.csv');
+  $container->getDispatcher()->addListener('sequence.log', [
     $csvLogger,
-    'onSuccess',
-  ]);
-  $container->getDispatcher()->addListener('sequence.status', [
-    $csvLogger,
-    'onFail',
+    'log',
   ]);
   $screenLogger = new ScreenLogger();
-  $container->getDispatcher()->addListener('sequence.status', [
+  $container->getDispatcher()->addListener('sequence.log', [
     $screenLogger,
-    'onFail',
+    'log',
   ]);
 
 

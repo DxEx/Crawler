@@ -8,7 +8,6 @@
 namespace Crawler;
 
 use Goutte\Client;
-use League\Csv\Writer;
 use Symfony\Component\Stopwatch\Stopwatch;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 
@@ -35,13 +34,10 @@ class Container {
    * @param string $csv_file_path
    * @param string $label
    */
-  public function __construct(Environment $environment, $csv_file_path, $label = "Runner 1") {
+  public function __construct(Environment $environment, $label = "Runner 1") {
 
     // Load environment class.
     $this->environment = $environment;
-
-    $this->csv_writer = Writer::createFromPath($csv_file_path, 'a+');
-    $this->csv_writer->setDelimiter(";");
 
     $this->label = $label;
 

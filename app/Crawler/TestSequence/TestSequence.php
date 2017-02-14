@@ -8,10 +8,9 @@
 namespace Crawler\TestSequence;
 
 use Crawler\Container;
-use Crawler\TestSequence\Event\TestSequenceEvent;
 use Crawler\TestAction\TestActionInterface;
+use Crawler\TestSequence\Event\TestSequenceEvent;
 use Symfony\Component\Yaml\Yaml;
-use Symfony\Component\EventDispatcher\Event;
 
 
 class TestSequence implements TestSequenceInterface {
@@ -81,27 +80,20 @@ class TestSequence implements TestSequenceInterface {
     if ($this->status !== 'FAILED') {
       $this->status = 'SUCCESS';
     }
-    $event = $stopwatch->stop($this->meta['label']);
 
-    // Log.
-    $log = array(
-      'environment' => $this->container->environment()->label(),
-      'category' => $this->category(),
-      'test' => $this->label(),
-      'time' => date('Y-m-d H:i:s'),
-      'duration' => $event->getDuration(),
-      'container' => $this->container->label(),
-      'status' => $this->status,
+    // Dispatch log event.
+    $event = new TestSequenceEvent(
+      $this->container->environment()->label(),
+      $this->category(),
+      $this->label(),
+      date('Y-m-d H:i:s'),
+      $stopwatch->stop($this->meta['label'])->getDuration(),
+      $this->container->label(),
+      $this->status
     );
-    $this->container->csvWriter()->insertOne($log);
-    // Log to console.
-    print json_encode($log) . PHP_EOL;
-
-
-    $event = new TestSequenceEvent($this);
-    $this->container->getDispatcher()->dispatch(TestSequenceEvent::NAME, $event);
+    $this->container->getDispatcher()
+      ->dispatch(TestSequenceEvent::NAME, $event);
   }
-
 
   public function addActionToSequence(TestActionInterface $testAction) {
     $this->action_sequence[] = $testAction;

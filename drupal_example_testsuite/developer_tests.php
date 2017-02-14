@@ -9,6 +9,8 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Crawler\Container;
 use Crawler\Environment;
+use Crawler\Logger\CsvLogger;
+use Crawler\Logger\ScreenLogger;
 use Crawler\TestSequence\TestSequence;
 
 // You can add multiple environments to a test-suite.
@@ -18,7 +20,19 @@ $environments[] = new Environment('drupal8', __DIR__ . '/environments/drupal8_lo
 // For every environment a container is created that runs test-sequences.
 // Each test-sequence runs in a new session.
 foreach ($environments as $env) {
-  $container = new Container($env, "/tmp/crawler-log.csv", 'Developer Tests');
+  $container = new Container($env, 'Developer Tests');
+
+  // Add loggers.
+  $csvLogger = new CsvLogger('/tmp/crawler-log.csv');
+  $container->getDispatcher()->addListener('sequence.log', [
+    $csvLogger,
+    'log',
+  ]);
+  $screenLogger = new ScreenLogger();
+  $container->getDispatcher()->addListener('sequence.log', [
+    $screenLogger,
+    'log',
+  ]);
 
   /**
    * Without Garbage.
