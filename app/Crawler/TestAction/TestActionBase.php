@@ -16,9 +16,6 @@ class TestActionBase {
   protected $params;
   protected $validators = [];
 
-  // deprectated
-  protected $expected_status_code;
-
   /**
    * TestAction constructor.
    *
@@ -26,14 +23,10 @@ class TestActionBase {
    *    The injected container.
    * @param $params
    *    Array of parameters that the implementing TestAction is relying on.
-   * @param $expected_status_code
-   *    Expected http expected_status_code code. TestAction will evaluate to failed if a
-   *    different expected_status_code code is returned.
    */
-  public function __construct(Container $container, $params, $expected_status_code) {
+  public function __construct(Container $container, $params) {
     $this->container = $container;
     $this->params = $params;
-    $this->expected_status_code = $expected_status_code;
   }
 
   public function addValidator(TestValidationInterface $validator) {

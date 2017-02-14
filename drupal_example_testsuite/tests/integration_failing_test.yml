@@ -4,5 +4,5 @@ meta:
   category: 'developer'
 actions:
   - class: 'TestActionFail'
-    expected_status_code: '200'
-
+    validators:
+      ResponseCode: '200'

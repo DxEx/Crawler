@@ -7,7 +7,8 @@ actions:
     label: 'Login as developer'
     params:
       account: 'developer'
-    expected_status_code: '200'
+    validators:
+      ResponseCode: '200'
   - class: 'TestActionFormFill'
     label: 'Create a new page on node/add/page'
     params:
@@ -15,5 +16,5 @@ actions:
       form_submit_text: 'Save'
       form_values:
         title: 'A test page'
-#        title[und][0][value]: 'A test page'
-    expected_status_code: '200'
+    validators:
+      ResponseCode: '200'

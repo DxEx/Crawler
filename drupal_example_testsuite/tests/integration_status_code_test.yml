@@ -6,19 +6,23 @@ actions:
   - class: 'TestActionUrl'
     params:
       url: '/admin/config/development/performance'
-    expected_status_code: '403'
+    validators:
+      ResponseCode: '403'
   - class: 'TestActionLogin'
     params:
       account: 'developer'
-    expected_status_code: '200'
+    validators:
+      ResponseCode: '200'
   - class: 'TestActionUrl'
     params:
       url: '/admin/config/development/performance'
-    expected_status_code: '200'
+    validators:
+      ResponseCode: '200'
   - class: 'TestActionUrl'
     params:
       url: '/node/add/page'
-    expected_status_code: '200'
+    validators:
+      ResponseCode: '200'
   - class: 'TestActionFormFill'
     label: 'Do node/add/page'
     params:
@@ -26,16 +30,19 @@ actions:
       form_submit_text: 'Save'
       form_values:
         'title_field[und][0][value]': 'A test page'
-    expected_status_code: '200'
+    validators:
+      ResponseCode: '200'
   - class: 'TestActionFormFill'
     label: 'Run cron'
     params:
       url: '/admin/config/system/cron'
       form_submit_text: 'Run cron'
-    expected_status_code: '200'
+    validators:
+      ResponseCode: '200'
   - class: 'TestActionFormFill'
     label: 'Clear caches'
     params:
       url: '/admin/config/development/performance'
       form_submit_text: 'Clear all caches'
-    expected_status_code: '200'
+    validators:
+      ResponseCode: '200'

@@ -38,11 +38,6 @@ class TestActionFormFill extends TestActionBase implements TestActionInterface {
 
     $client->submit($form, $form_values);
 
-    // Validate response.
-    if ($client->getResponse()->getStatus() == $this->expected_status_code) {
-//      print 'Crawler\TestAction\TestActionFormFill doExecute() finished successful with status_code ' . $this->expected_status_code . PHP_EOL;
-      return TRUE;
-    }
   }
 
 }

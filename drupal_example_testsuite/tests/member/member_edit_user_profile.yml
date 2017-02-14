@@ -7,11 +7,13 @@ actions:
     label: 'Login as member'
     params:
       account: 'member'
-    expected_status_code: '200'
+    validators:
+      ResponseCode: '200'
   - class: 'TestActionFormFill'
     label: 'Save own user profile at /user'
     params:
       url: '/user/{account.member.uid}/edit'
       account: 'member'
       form_css_selector: '#user-profile-form'
-    expected_status_code: '200'
+    validators:
+      ResponseCode: '200'

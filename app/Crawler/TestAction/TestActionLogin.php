@@ -40,11 +40,6 @@ class TestActionLogin extends TestActionBase implements TestActionInterface {
       'pass' => $pass,
     ));
 
-    // Response.
-    if ($client->getResponse()->getStatus() == $this->expected_status_code) {
-//      print 'Crawler\TestAction\TestActionLogin doExecute() finished successful with status_code ' . $this->expected_status_code . PHP_EOL;
-      return TRUE;
-    }
   }
 
 }
