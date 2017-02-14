@@ -16,6 +16,7 @@
     "symfony/yaml": "~3",
     "symfony/stopwatch": "~3",
     "league/csv": "^7.2",
-    "nicmart/string-template": "^0.1.0"
+    "nicmart/string-template": "^0.1.0",
+    "symfony/event-dispatcher": "^3.2"
   }
 }

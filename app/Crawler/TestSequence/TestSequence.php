@@ -8,8 +8,11 @@
 namespace Crawler\TestSequence;
 
 use Crawler\Container;
+use Crawler\TestSequence\Event\TestSequenceEvent;
 use Crawler\TestAction\TestActionInterface;
 use Symfony\Component\Yaml\Yaml;
+use Symfony\Component\EventDispatcher\Event;
+
 
 class TestSequence implements TestSequenceInterface {
   protected $action_sequence;
@@ -93,6 +96,10 @@ class TestSequence implements TestSequenceInterface {
     $this->container->csvWriter()->insertOne($log);
     // Log to console.
     print json_encode($log) . PHP_EOL;
+
+
+    $event = new TestSequenceEvent($this);
+    $this->container->getDispatcher()->dispatch(TestSequenceEvent::NAME, $event);
   }
 
 

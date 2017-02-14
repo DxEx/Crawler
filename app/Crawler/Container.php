@@ -10,6 +10,7 @@ namespace Crawler;
 use Goutte\Client;
 use League\Csv\Writer;
 use Symfony\Component\Stopwatch\Stopwatch;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 
 /**
  * Class Container
@@ -23,6 +24,9 @@ class Container {
   protected $stopwatch;
   protected $csv_writer;
   protected $label;
+
+  /** @var \Symfony\Component\EventDispatcher\EventDispatcher $dispatcher **/
+  protected $dispatcher;
 
   /**
    * Container constructor.
@@ -55,6 +59,8 @@ class Container {
 
 
     $this->stopwatch = new Stopwatch();
+
+    $this->dispatcher = new EventDispatcher();
   }
 
   /**
@@ -125,6 +131,10 @@ class Container {
    */
   public function label() {
     return $this->label;
+  }
+
+  public function getDispatcher() {
+    return $this->dispatcher;
   }
 
 }
